@@ -2,6 +2,7 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
+// Mapping Model for Mongo Collection
 namespace DotnetCoreReactWebAppMongo.Models
 {
 	[BsonIgnoreExtraElements]

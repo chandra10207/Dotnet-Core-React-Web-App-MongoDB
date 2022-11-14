@@ -20,6 +20,7 @@ namespace DotnetCoreReactWebAppMongo.Controllers
 
         public WeatherForecastController(IMongoClient client)
         {
+            //Get MongoClient instance from runtime and create collection 
             var database = client.GetDatabase("sample_geospatial");
             _shipwreckCollection = database.GetCollection<Shipwrecks>("shipwrecks");
         }
@@ -28,7 +29,7 @@ namespace DotnetCoreReactWebAppMongo.Controllers
         [HttpGet]
         public IEnumerable<Shipwrecks> Get()
         {
-
+            // Mongo query i=using LINQ with mapping class
             return _shipwreckCollection.Find(s => s.FeatureType == "Wrecks - Visible").ToList();
         }
     }
